@@ -1,0 +1,5 @@
+bilibili-api
+requests
+pydub
+simpleaudio
+PyQt5

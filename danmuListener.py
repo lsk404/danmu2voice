@@ -7,11 +7,11 @@ def log(txt):
     with open("log.txt", "w+") as f:
         f.write(txt)
 class DanmuListener:
-    def __init__(self, room_id, credential, callback=None):
+    def __init__(self, room_id, credential, uid,callback=None):
         self.room_id = room_id
         self.credential = credential
         self.callback = callback
-        self.uid = 381771544
+        self.uid = uid
         self._running = False
         self._monitor = None
         self._retry_count = 0
@@ -66,7 +66,7 @@ class DanmuListener:
 
 
 if __name__ == "__main__":
-    from config import ROOMID,credential_sessdata,credential_bili_jct
+    from config import ROOMID,credential_sessdata,credential_bili_jct,UID
     ROOMID = 1732028631
     credential = Credential(
         sessdata=credential_sessdata,
@@ -74,8 +74,8 @@ if __name__ == "__main__":
     )
 
     # 创建监听器（保持原有接口不变）
-    listener = DanmuListener(ROOMID, credential, 
-                           callback=lambda msg, uname: print(f"[{uname}]: {msg}"))
+    listener = DanmuListener(ROOMID, credential, uid=UID,
+                           callback=lambda msg,uname: print(f"[{uname}]: {msg}"))
     listener.start()
     print("弹幕监听已启动，主线程继续运行...")
 

@@ -242,7 +242,7 @@ credential = Credential(
     bili_jct=credential_bili_jct
 )
 # 创建监听器
-listener = DanmuListener(ROOMID, credential, callback=handle_danmu)
+listener = DanmuListener(ROOMID, credential, uid=UID,callback=handle_danmu)
 
 # 启动监听线程
 def run_listener():
