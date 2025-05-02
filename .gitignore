@@ -1,0 +1,12 @@
+# 忽略 logs 目录及其所有内容
+logs/
+
+# 忽略 config.py 文件
+config.py
+
+# 其他常见的忽略规则（可选）
+*.log
+*.pyc
+__pycache__/
+.env
+.DS_Store
