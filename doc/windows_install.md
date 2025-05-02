@@ -89,7 +89,7 @@ pip install -r requirements.txt
 
 找到cookies,复制`SESSDATA`和`bili_jct`
 
-<img src=".\shotcreens\cookies.png" alt="image-20250502224838529" style="zoom:50%;" />
+<img src=".\screenshots\cookies.png" alt="image-20250502224838529" style="zoom:50%;" />
 
 ## 配置config.py
 

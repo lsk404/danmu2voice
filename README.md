@@ -9,4 +9,6 @@
 
 详见[windows安装过程](./doc/windows_install.md)
 
+## 效果展示
 
+详见[效果展示](./doc/show.md)
