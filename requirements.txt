@@ -3,3 +3,4 @@ requests
 pydub
 simpleaudio
 PyQt5
+asyncio

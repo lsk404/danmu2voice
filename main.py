@@ -136,7 +136,7 @@ def text2wav(text: str):
         response = requests.post(url, json=data, headers=headers, timeout=60)
         if response.status_code == 200:
             playWav(response.content)
-            logger.INFO("已提交播放任务，可继续输入...")
+            logger.info("已提交播放任务，可继续输入...")
         else:
             logger.error(f"请求失败，状态码：{response.status_code}")
     except Exception as e:

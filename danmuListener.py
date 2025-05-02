@@ -3,6 +3,7 @@ import asyncio
 from bilibili_api import Credential, sync
 from bilibili_api.live import LiveDanmaku
 import time
+from mylog import logger
 def log(txt):
     with open("log.txt", "w+") as f:
         f.write(txt)
@@ -26,7 +27,7 @@ class DanmuListener:
                 self._retry_count = 0  # 重置重试计数器
                 return
             except Exception as e:
-                print(f"连接异常: {e}, 5秒后重试...")
+                logger.error(f"连接异常: {e}, 5秒后重试...")
                 self._retry_count += 1
                 await asyncio.sleep(5)
 
@@ -67,7 +68,6 @@ class DanmuListener:
 
 if __name__ == "__main__":
     from config import ROOMID,credential_sessdata,credential_bili_jct,UID
-    ROOMID = 1732028631
     credential = Credential(
         sessdata=credential_sessdata,
         bili_jct=credential_bili_jct
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     listener = DanmuListener(ROOMID, credential, uid=UID,
                            callback=lambda msg,uname: print(f"[{uname}]: {msg}"))
     listener.start()
-    print("弹幕监听已启动，主线程继续运行...")
+    logger.info("弹幕监听已启动，主线程继续运行...")
 
     try:
         while True:
@@ -86,7 +86,7 @@ if __name__ == "__main__":
                 break
     finally:
         listener.stop()
-        print("弹幕监听已停止")
+        logger.info("弹幕监听已停止")
 
 """
 小青WA_ 发送消息12345
