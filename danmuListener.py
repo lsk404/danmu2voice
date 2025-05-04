@@ -3,7 +3,8 @@ import asyncio
 from bilibili_api import Credential, sync
 from bilibili_api.live import LiveDanmaku
 import time
-from mylog import logger
+
+from .mylog import logger
 def log(txt):
     with open("log.txt", "w+") as f:
         f.write(txt)

@@ -4,11 +4,11 @@ import simpleaudio as sa
 import io
 import threading
 import json
-import window as Window
 
-from config import *
-
-from mylog import logger
+from . import window as Window
+from .config import *
+from .mylog import logger
+from . import write2txt
 
 with open(prompt_path) as f:
     AI_prompt = f.read()
@@ -222,7 +222,7 @@ def handle_danmu(msg,uname):
         danmu_AI_TTS(uname,danmu_queue.get())
     
 lock = 0 # 锁住函数danmu_AI_TTS
-import write2txt
+
 def danmu_AI_TTS(uname,msg):
     global lock
     while(lock == 1): # 锁住

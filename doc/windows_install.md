@@ -20,7 +20,7 @@
 
 官方安装教程戳这里：https://github.com/RVC-Boss/GPT-SoVITS?tab=readme-ov-file
 
-1. 下载[整合包](https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e/dkxgpiy9zb96hob4#KTvnO)
+1. 下载[整合包（附链接）](https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e/dkxgpiy9zb96hob4#KTvnO)
 
 得到和`GPT-SoVITS-v3lora-20250228` 类似的压缩包，解压他。
 

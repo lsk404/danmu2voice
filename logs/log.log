@@ -14,3 +14,13 @@
 2025-05-02 23:18:52,220 - INFO - [弹幕回调] 哈咯
 2025-05-02 23:18:59,294 - INFO - [AI回调] （开心地蹦蹦跳跳）哇！你好呀~我是小青蛙，今天也在努力直播呢！有什么想和我聊的嘛喵？
 2025-05-02 23:19:09,402 - INFO - 已提交播放任务，可继续输入...
+2025-05-02 23:51:07,264 - INFO - [文本转换] 开始(输入exit退出)
+2025-05-02 23:51:10,585 - INFO - [弹幕回调] 吃挺好
+2025-05-02 23:51:14,329 - INFO - [AI回调] (歪着头眨眨眼) 小青蛙也喜欢吃好吃的东西呢，不过要记得营养均衡哦喵~
+2025-05-02 23:51:16,394 - ERROR - [转换错误] HTTPConnectionPool(host='127.0.0.1', port=9880): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027371DACD70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-05-02 23:51:21,023 - INFO - [弹幕回调] 嘻嘻
+2025-05-02 23:51:25,085 - INFO - [AI回调] (开心地蹦跳两下) 看到你开心小青蛙也跟着开心起来啦，要一直保持这样的笑容喵~
+2025-05-02 23:51:27,154 - ERROR - [转换错误] HTTPConnectionPool(host='127.0.0.1', port=9880): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027371DA5F90>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-05-02 23:52:19,497 - INFO - [弹幕回调] 关注主播谢谢喵
+2025-05-02 23:52:24,411 - INFO - [AI回调] (双手合十眼睛闪闪发亮) 谢谢你的关注喵！小青蛙会继续努力带来更多欢乐的~
+2025-05-02 23:52:32,904 - INFO - 已提交播放任务，可继续输入...
