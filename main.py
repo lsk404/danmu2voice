@@ -5,12 +5,15 @@ import io
 import threading
 import json
 
-from . import window as Window
-from .config import *
-from .mylog import logger
-from . import write2txt
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-with open(prompt_path) as f:
+import mywindow as Window
+import config
+from mylog import logger
+import write2txt
+
+with open(config.prompt_path,encoding='utf-8') as f:
     AI_prompt = f.read()
 ## 打开文字转语音功能
 import subprocess
@@ -121,10 +124,10 @@ def text2wav(text: str):
     """
     text,tone = choose_tone(text)
     
-    url = voice_host_url
+    url = config.voice_host_url
     data = {
-        "refer_wav_path": wavs[tone],
-        "prompt_text": voice_prompt_texts[tone],
+        "refer_wav_path": config.wavs[tone],
+        "prompt_text": config.voice_prompt_texts[tone],
         "prompt_language": "zh",
         "text": text,
         "text_language": "zh",
@@ -151,7 +154,7 @@ messages = []
 def get_deepseek_response(content): 
     # messages 是一个列表，每一项是一个字典
     # 示例：messages = [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Hello!"}]
-    url = LLM_API_url
+    url = config.LLM_API_url
     messages.append({"role": "user", "content": content})
     payload = {
         "model": "deepseek-ai/DeepSeek-V3",
@@ -178,7 +181,7 @@ def get_deepseek_response(content):
         ]
     }
     headers = {
-        "Authorization": LLM_Authorization,
+        "Authorization": config.LLM_Authorization,
         "Content-Type": "application/json"
     }
 
@@ -205,12 +208,12 @@ app = QApplication([])
 window = Window.DraggableWindow()
 
 import threading
-from danmuListener import DanmuListener,Credential
+from bulletListener import DanmuListener
 from queue import Queue
 
 danmu_queue = Queue()
 max_queue_size = 10
-def handle_danmu(msg,uname):
+def handle_danmu(msg,uname,face_url):
     logger.info(f"[弹幕回调] {msg}")
     if msg[0] == '/' :
         return
@@ -232,17 +235,13 @@ def danmu_AI_TTS(uname,msg):
     content = get_deepseek_response(msg) # 获取deepseek返回的结果
     logger.info(f"[AI回调] {content}")
     Window.change_window_text(window, uname+":"+msg+"\nAI:"+content) # 更新窗口文本
-    write2txt.write_append(uname+":"+msg+"\nAI:"+content+"\n",history_path)
+    write2txt.write_append(uname+":"+msg+"\nAI:"+content+"\n",config.history_path)
     text2wav(content) # AI配音
     lock = 0
 # 初始化
 
-credential = Credential(
-    sessdata=credential_sessdata,
-    bili_jct=credential_bili_jct
-)
 # 创建监听器
-listener = DanmuListener(ROOMID, credential, uid=UID,callback=handle_danmu)
+listener = DanmuListener(config.ROOMID, callback=handle_danmu)
 
 # 启动监听线程
 def run_listener():

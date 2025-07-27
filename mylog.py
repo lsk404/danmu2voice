@@ -1,5 +1,9 @@
 import logging
-from .config import log_path
+
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from config import log_path
 # 创建 Logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)  # 设置最低级别

@@ -1,0 +1,1 @@
+D:/0file/projs/GPT-SoVITS-v3lora-20250228/runtime/python.exe "D:/0file/projs/GPT-SoVITS-v3lora-20250228/api.py" -dr "D:/0file/projs/GPT-SoVITS-v3lora-20250228/voice/paiMeng/说话-既然罗莎莉亚说足迹上有元素力，用元素视野应该能很清楚地看到吧。.wav" -dt "既然罗莎莉亚说足迹上有元素力，用元素视野应该能很清楚地看到吧。" -dl "zh"

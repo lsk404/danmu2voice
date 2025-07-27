@@ -1,1 +1,0 @@
-D:/0file/projs/GPT-SoVITS-v3lora-20250228/runtime/python.exe D:\0file\projs\danmu2voice\main.py
